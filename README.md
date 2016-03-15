@@ -1,4 +1,5 @@
-# KeyboardHelper
+
+# KeyboardHelper [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 Swift library to help keep text entry view above keyboard.
 #How to use 
 * Add KeyboardHelper Library 

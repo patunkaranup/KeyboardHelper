@@ -3,6 +3,7 @@
 Swift library to help keep text entry view above keyboard. 
 * Supports portrait and landscape orientation. 
 * Supppots universal code.
+* Supports multiple scrollViews displayed simultaneously. 
 * Allows customization.
 
 #How to use 

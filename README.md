@@ -3,25 +3,25 @@
 Swift library to help keep text entry view above keyboard. 
 * Supports portrait and landscape orientation. 
 * Supppots universal code.
-* Allows customization
+* Allows customization.
 
 #How to use 
-* Add KeyboardHelper Library 
+* Add KeyboardHelper library 
 * Import `import KeyboardHelper`
   
 * Register scrollView 
 
   ```SharedKeyboardObserver.registerScrollView(scrollView, owner: self)```
 
-* Provide firstResponder Information 
+* Provide firstResponder information 
 
   ```
-  extension ScollViewWithTextFieldViewController: ScrollViewHandler {
+  extension ScrollViewWithTextFieldViewController: ScrollViewHandler {
       func viewForFirstResponderInScrollView(scrollView: UIScrollView) -> UIView? {
         return textField
     }
   }
   ```
 #Carthage support 
-Add ```github "patunkaranup/KeyboardHelper"``` in Cartfile
-Follow intruction as per [page] (https://github.com/Carthage/Carthage)
+Add ```github "patunkaranup/KeyboardHelper"``` in Cartfile.
+Follow intructions as per [page] (https://github.com/Carthage/Carthage)

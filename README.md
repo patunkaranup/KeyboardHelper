@@ -5,6 +5,7 @@ Swift library to help keep text entry view above keyboard.
 * Supppots universal code.
 * Supports multiple scrollViews displayed simultaneously. 
 * Allows customization.
+* Supports Swift and Objective-C
 
 #How to use 
 * Add KeyboardHelper library 
@@ -12,7 +13,7 @@ Swift library to help keep text entry view above keyboard.
   
 * Register scrollView 
 
-  ```SharedKeyboardObserver.registerScrollView(scrollView, owner: self)```
+  ```KeyboardObserver.sharedInstance.registerScrollView(scrollView, owner: self)```
 
 * Provide firstResponder information 
 

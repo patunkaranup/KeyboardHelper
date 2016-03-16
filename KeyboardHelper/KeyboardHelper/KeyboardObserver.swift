@@ -9,14 +9,8 @@
 import Foundation
 import UIKit
 
-public let SharedKeyboardObserver: KeyboardObserver = {
-    let observer = KeyboardObserver()
-    observer.delegate = SharedKeyboardHandler
-    return observer
-}()
-
 //MARK:- KeyboardObserverDelegate
-public protocol KeyboardObserverDelegate: class {
+@objc public protocol KeyboardObserverDelegate: class {
     func keyboardObserver(observer:KeyboardObserver, keyboardWillShow info: KeyboardObserverInformation)
     func keyboardObserver(observer:KeyboardObserver, keyboardWillHide info: KeyboardObserverInformation)
     func keyboardObserver(observer:KeyboardObserver, keyboardDidShow info: KeyboardObserverInformation)
@@ -25,6 +19,12 @@ public protocol KeyboardObserverDelegate: class {
 
 //MARK:- KeyboardObserver
 public final class KeyboardObserver : NSObject {
+    
+    public static var sharedInstance: KeyboardObserver = {
+        let observer = KeyboardObserver()
+        observer.delegate = KeyboardHandler.sharedInstance
+        return observer
+    }()
     
     public weak var delegate: KeyboardObserverDelegate?
     

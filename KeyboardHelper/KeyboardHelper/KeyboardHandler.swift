@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-public let SharedKeyboardHandler: KeyboardHandler = {
-    return KeyboardHandler()
-}()
-
-public class KeyboardHandler: KeyboardObserverDelegate {
+public class KeyboardHandler: NSObject {
     
+    public static let sharedInstance = KeyboardHandler()
     public var firstResponderMargin: UIEdgeInsets = UIEdgeInsetsMake(0, 0, 20, 0)
     
+}
+
+extension KeyboardHandler: KeyboardObserverDelegate {
     public func keyboardObserver(observer:KeyboardObserver, keyboardWillShow info: KeyboardObserverInformation) {
         let firstResponder = info.firstResponder
         guard let firstResponderSuperView = firstResponder.superview else {

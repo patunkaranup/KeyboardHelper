@@ -10,14 +10,17 @@ import Foundation
 import UIKit
 
 //MARK:- Keyboard
-public struct Keyboard {
-    let beginFrame: CGRect
-    let endFrame: CGRect
-    let animationDuration: Double?
-    let animationCurve: UIViewAnimationCurve?
-    let isLocal: Bool?
+public final class Keyboard: NSObject {
+    private(set) var beginFrame: CGRect
+    private(set) var endFrame: CGRect
+    private(set) var animationDuration: Double? = nil
+    private(set) var animationCurve: UIViewAnimationCurve? = nil
+    private(set) var isLocal: Bool? = nil
     
     init?(notification: NSNotification) {
+        self.beginFrame = CGRectZero
+        self.endFrame = CGRectZero
+        super.init()
         guard let beginFrame = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue,
             let endFrame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue else  {
                 return nil
@@ -37,12 +40,12 @@ public struct Keyboard {
 }
 
 //MARK:- ScrollViewHandler
-public protocol ScrollViewHandler: class {
+@objc public protocol ScrollViewHandler: NSObjectProtocol {
     func viewForFirstResponderInScrollView(scrollView: UIScrollView) -> UIView?
 }
 
 //MARK:- KeyboardObserverInformation
-public struct KeyboardObserverInformation {
+public final class KeyboardObserverInformation: NSObject {
     public let keyboard: Keyboard
     public let scrollView: UIScrollView
     public let firstResponder: UIView
